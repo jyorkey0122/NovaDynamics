@@ -1,0 +1,465 @@
+/* ==========================================================
+   NovaDynamics Featured Projects
+========================================================== */
+
+#projects{
+
+    padding-top:170px;
+
+    padding-bottom:170px;
+
+}
+
+/* ---------- Header ---------- */
+
+.projects-heading{
+
+    width:min(1180px,100%);
+
+    margin:0 auto 70px;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:space-between;
+
+    gap:40px;
+
+}
+
+.projects-heading h2{
+
+    margin:0;
+
+    text-align:left;
+
+}
+
+.projects-heading p{
+
+    max-width:520px;
+
+    margin:0;
+
+    text-align:left;
+
+}
+
+/* ---------- Project Grid ---------- */
+
+.project-grid{
+
+    width:min(1180px,100%);
+
+    margin:0 auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,minmax(0,1fr));
+
+    gap:30px;
+
+}
+
+/* ---------- Project Cards ---------- */
+
+.project-card{
+
+    position:relative;
+
+    min-height:520px;
+
+    overflow:hidden;
+
+    border-radius:34px;
+
+    isolation:isolate;
+
+    background:#dcefff;
+
+    border:1px solid rgba(255,255,255,.82);
+
+    box-shadow:
+        0 28px 70px rgba(25,79,145,.14);
+
+    transition:
+        transform .45s cubic-bezier(.2,.75,.25,1),
+        box-shadow .45s ease;
+
+}
+
+.project-card:first-child{
+
+    grid-column:1 / -1;
+
+    min-height:650px;
+
+}
+
+.project-card:hover{
+
+    transform:translateY(-9px);
+
+    box-shadow:
+        0 38px 90px rgba(22,76,148,.22);
+
+}
+
+/* ---------- Placeholder Artwork ---------- */
+
+.project-visual{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:-2;
+
+    transition:transform .8s cubic-bezier(.2,.75,.25,1);
+
+}
+
+.project-card:hover .project-visual{
+
+    transform:scale(1.035);
+
+}
+
+/* Robotics */
+
+.project-robotics .project-visual{
+
+    background:
+
+        radial-gradient(
+            circle at 72% 38%,
+            rgba(255,255,255,.9) 0 4%,
+            rgba(109,215,255,.42) 14%,
+            transparent 36%
+        ),
+
+        radial-gradient(
+            circle at 70% 48%,
+            rgba(25,112,197,.65),
+            transparent 34%
+        ),
+
+        linear-gradient(
+            135deg,
+            #e9faff 0%,
+            #8fddff 42%,
+            #1d68ad 100%
+        );
+
+}
+
+/* Ride Systems */
+
+.project-rides .project-visual{
+
+    background:
+
+        repeating-radial-gradient(
+            ellipse at 70% 55%,
+            transparent 0 28px,
+            rgba(255,255,255,.18) 30px 32px
+        ),
+
+        linear-gradient(
+            145deg,
+            #dffaff 0%,
+            #6ed0f2 48%,
+            #2467a5 100%
+        );
+
+}
+
+/* Research */
+
+.project-research .project-visual{
+
+    background:
+
+        radial-gradient(
+            circle at 68% 38%,
+            rgba(255,255,255,.8),
+            transparent 12%
+        ),
+
+        radial-gradient(
+            circle at 74% 48%,
+            rgba(121,241,217,.6),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            145deg,
+            #efffff 0%,
+            #8fe8da 44%,
+            #297ca0 100%
+        );
+
+}
+
+/* ---------- Dark Readability Overlay ---------- */
+
+.project-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:-1;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(7,33,67,.88) 0%,
+            rgba(10,46,87,.64) 42%,
+            rgba(10,46,87,.08) 78%
+        );
+
+}
+
+.project-card:not(:first-child)::before{
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(6,34,67,.06) 20%,
+            rgba(7,34,68,.86) 100%
+        );
+
+}
+
+/* ---------- Project Content ---------- */
+
+.project-content{
+
+    position:absolute;
+
+    left:46px;
+
+    right:46px;
+
+    bottom:46px;
+
+    color:white;
+
+}
+
+.project-card:first-child .project-content{
+
+    top:50%;
+
+    bottom:auto;
+
+    max-width:540px;
+
+    transform:translateY(-50%);
+
+}
+
+.project-eyebrow{
+
+    display:inline-block;
+
+    margin-bottom:14px;
+
+    color:#a9e8ff;
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+}
+
+.project-card h3{
+
+    margin:0 0 16px;
+
+    color:white;
+
+    font-size:clamp(2rem,4vw,3.5rem);
+
+    line-height:1.05;
+
+    letter-spacing:-.035em;
+
+}
+
+.project-card:not(:first-child) h3{
+
+    font-size:clamp(1.8rem,3vw,2.6rem);
+
+}
+
+.project-card p{
+
+    max-width:520px;
+
+    color:rgba(239,249,255,.8);
+
+    line-height:1.75;
+
+}
+
+/* ---------- Project Link ---------- */
+
+.project-link{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:26px;
+
+    color:white;
+
+    font-weight:650;
+
+}
+
+.project-link span{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:32px;
+
+    height:32px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.16);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    transition:
+        transform .3s ease,
+        background .3s ease;
+
+}
+
+.project-card:hover .project-link span{
+
+    transform:translateX(5px);
+
+    background:rgba(255,255,255,.24);
+
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width:900px){
+
+    .projects-heading{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+    }
+
+    .projects-heading h2,
+    .projects-heading p{
+
+        text-align:left;
+
+    }
+
+    .project-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .project-card:first-child{
+
+        grid-column:auto;
+
+        min-height:570px;
+
+    }
+
+    .project-card{
+
+        min-height:500px;
+
+    }
+
+}
+
+@media (max-width:600px){
+
+    #projects{
+
+        padding-top:120px;
+
+        padding-bottom:120px;
+
+    }
+
+    .projects-heading{
+
+        margin-bottom:48px;
+
+    }
+
+    .project-card,
+    .project-card:first-child{
+
+        min-height:490px;
+
+        border-radius:26px;
+
+    }
+
+    .project-content{
+
+        left:28px;
+
+        right:28px;
+
+        bottom:30px;
+
+    }
+
+    .project-card:first-child .project-content{
+
+        top:auto;
+
+        bottom:30px;
+
+        transform:none;
+
+    }
+
+    .project-card::before,
+    .project-card:not(:first-child)::before{
+
+        background:
+
+            linear-gradient(
+                180deg,
+                rgba(5,30,60,.02) 12%,
+                rgba(7,34,68,.92) 100%
+            );
+
+    }
+
+}

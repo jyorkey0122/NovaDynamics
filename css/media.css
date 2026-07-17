@@ -1,0 +1,155 @@
+/* ==========================================================
+   NovaDynamics Real Project Media
+========================================================== */
+
+/*
+   Each visual can receive a real image using:
+
+   style="--project-image: url('../assets/images/example.webp');"
+
+   The gradient underneath remains visible if the image
+   is missing or still loading.
+*/
+
+/* ---------- Shared Image Behavior ---------- */
+
+.project-visual,
+.portfolio-image,
+.modal-hero,
+.research-feature,
+.technology-main,
+.future-panel {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* ---------- Featured Project Images ---------- */
+
+.project-visual.has-image {
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(5, 28, 59, 0.86) 0%,
+            rgba(5, 28, 59, 0.5) 44%,
+            rgba(5, 28, 59, 0.04) 80%
+        ),
+        var(--project-image);
+}
+
+.project-card:not(:first-child) .project-visual.has-image {
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(5, 28, 59, 0.02) 18%,
+            rgba(5, 28, 59, 0.86) 100%
+        ),
+        var(--project-image);
+}
+
+/* Prevent duplicate dark overlays when using real images */
+
+.project-card:has(.project-visual.has-image)::before {
+    background: transparent;
+}
+
+/* ---------- Portfolio Thumbnail Images ---------- */
+
+.portfolio-image.has-image {
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(6, 29, 59, 0.01) 18%,
+            rgba(6, 29, 59, 0.84) 100%
+        ),
+        var(--project-image);
+}
+
+.portfolio-item:has(.portfolio-image.has-image)::before {
+    background: transparent;
+}
+
+/* ---------- Modal Project Images ---------- */
+
+.modal-hero.has-image {
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(5, 27, 58, 0.01) 12%,
+            rgba(5, 27, 58, 0.45) 100%
+        ),
+        var(--modal-image);
+}
+
+/* ---------- Large Section Images ---------- */
+
+.research-feature.has-image {
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(5, 29, 57, 0.04) 15%,
+            rgba(5, 29, 57, 0.9) 100%
+        ),
+        var(--section-image);
+}
+
+.technology-main.has-image {
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(5, 29, 57, 0.04) 15%,
+            rgba(5, 29, 57, 0.91) 100%
+        ),
+        var(--section-image);
+}
+
+.future-panel.has-image {
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(4, 23, 51, 0.92) 0%,
+            rgba(6, 31, 67, 0.62) 45%,
+            rgba(6, 31, 67, 0.08) 82%
+        ),
+        var(--section-image);
+}
+
+/* ---------- Image Loading Animation ---------- */
+
+.has-image {
+    animation: mediaReveal 0.8s ease both;
+}
+
+@keyframes mediaReveal {
+    from {
+        filter: saturate(0.7) brightness(1.1);
+        opacity: 0.72;
+    }
+
+    to {
+        filter: saturate(1) brightness(1);
+        opacity: 1;
+    }
+}
+
+/* ---------- Mobile Image Positioning ---------- */
+
+@media (max-width: 760px) {
+    .project-visual.has-image,
+    .portfolio-image.has-image,
+    .research-feature.has-image,
+    .technology-main.has-image,
+    .future-panel.has-image {
+        background-position: center;
+    }
+
+    .future-panel.has-image {
+        background-image:
+            linear-gradient(
+                180deg,
+                rgba(4, 23, 51, 0.08) 10%,
+                rgba(4, 23, 51, 0.92) 78%
+            ),
+            var(--section-image);
+    }
+}

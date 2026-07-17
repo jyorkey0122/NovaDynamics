@@ -1,0 +1,183 @@
+/* ==========================================================
+   NovaDynamics Interaction Polish
+========================================================== */
+
+/* ---------- Scroll Progress Bar ---------- */
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 6000;
+    width: 100%;
+    height: 3px;
+    pointer-events: none;
+}
+
+.scroll-progress-bar {
+    width: 0;
+    height: 100%;
+    border-radius: 0 999px 999px 0;
+    background:
+        linear-gradient(
+            90deg,
+            #56d8ff,
+            var(--primary),
+            #6ce5d4
+        );
+    box-shadow:
+        0 0 14px rgba(69, 171, 255, 0.55);
+    transition: width 0.08s linear;
+}
+
+/* ---------- Active Navigation Link ---------- */
+
+.nav-links a.active {
+    color: var(--primary);
+}
+
+.nav-links a.active::after {
+    transform: scaleX(1);
+}
+
+/* ---------- Section Anchor Offset ---------- */
+
+section {
+    scroll-margin-top: 115px;
+}
+
+/* ---------- Custom Text Selection ---------- */
+
+::selection {
+    color: var(--navy);
+    background: rgba(112, 211, 255, 0.38);
+}
+
+/* ---------- Keyboard Focus ---------- */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid rgba(47, 130, 255, 0.42);
+    outline-offset: 4px;
+}
+
+/* ---------- Interactive Card Cursor ---------- */
+
+.project-card,
+.portfolio-item,
+.research-topic,
+.technology-item,
+.timeline-card,
+.card {
+    will-change: transform;
+}
+
+/* ---------- Ambient Card Highlight ---------- */
+
+.card,
+.project-card,
+.portfolio-item,
+.research-topic,
+.technology-item,
+.timeline-card {
+    --pointer-x: 50%;
+    --pointer-y: 50%;
+}
+
+.card > *,
+.project-card > *,
+.portfolio-item > *,
+.research-topic > *,
+.technology-item > *,
+.timeline-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.card .pointer-highlight,
+.project-card .pointer-highlight,
+.portfolio-item .pointer-highlight,
+.research-topic .pointer-highlight,
+.technology-item .pointer-highlight,
+.timeline-card .pointer-highlight {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    background:
+        radial-gradient(
+            320px circle at var(--pointer-x) var(--pointer-y),
+            rgba(255, 255, 255, 0.28),
+            transparent 58%
+        );
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .pointer-highlight,
+.project-card:hover .pointer-highlight,
+.portfolio-item:hover .pointer-highlight,
+.research-topic:hover .pointer-highlight,
+.technology-item:hover .pointer-highlight,
+.timeline-card:hover .pointer-highlight {
+    opacity: 1;
+}
+
+/* ---------- Back-to-Top Button ---------- */
+
+.back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1200;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.88);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.68);
+    color: var(--navy);
+    font-size: 1.15rem;
+    cursor: pointer;
+    box-shadow:
+        0 16px 40px rgba(25, 77, 143, 0.16);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease,
+        color 0.25s ease,
+        background 0.25s ease;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    color: white;
+    background: var(--primary);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 760px) {
+    section {
+        scroll-margin-top: 95px;
+    }
+
+    .back-to-top {
+        right: 16px;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+    }
+}

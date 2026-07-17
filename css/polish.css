@@ -1,0 +1,229 @@
+/* ==========================================================
+   NovaDynamics Final Interface Polish
+========================================================== */
+
+/* ---------- Prevent Horizontal Overflow ---------- */
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* ---------- Improved Page Rendering ---------- */
+
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Skip Navigation Link ---------- */
+
+.skip-link {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 10000;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background: var(--navy);
+    color: white;
+    font-weight: 700;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.skip-link:focus {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* ---------- Main Content ---------- */
+
+main {
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- Consistent Section Separation ---------- */
+
+main > section + section {
+    margin-top: 20px;
+}
+
+/* ---------- Better Long-Word Handling ---------- */
+
+h1,
+h2,
+h3,
+p,
+a,
+span {
+    overflow-wrap: break-word;
+}
+
+/* ---------- Button Normalization ---------- */
+
+button {
+    font: inherit;
+}
+
+/* ---------- Smoother Image Rendering ---------- */
+
+img {
+    image-rendering: auto;
+}
+
+/* ---------- Loading State ---------- */
+
+body.is-loading {
+    overflow: hidden;
+}
+
+body.is-loading main,
+body.is-loading footer {
+    opacity: 0;
+}
+
+body.site-ready main,
+body.site-ready footer {
+    opacity: 1;
+    transition: opacity 0.65s ease;
+}
+
+/* ---------- Page Loading Screen ---------- */
+
+.site-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    display: grid;
+    place-items: center;
+    background:
+        radial-gradient(
+            circle at center,
+            #e2f8ff 0%,
+            #f6fcff 45%,
+            white 100%
+        );
+    opacity: 1;
+    visibility: visible;
+    transition:
+        opacity 0.65s ease,
+        visibility 0.65s ease;
+}
+
+body.site-ready .site-loader {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.site-loader-content {
+    display: grid;
+    justify-items: center;
+    gap: 24px;
+}
+
+.site-loader-logo {
+    width: min(430px, 70vw);
+    height: auto;
+    animation: loaderFloat 2.2s ease-in-out infinite;
+}
+
+.site-loader-line {
+    width: 180px;
+    height: 3px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(47, 130, 255, 0.12);
+}
+
+.site-loader-line::after {
+    content: "";
+    display: block;
+    width: 55%;
+    height: 100%;
+    border-radius: inherit;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--primary),
+            #70e0d2,
+            transparent
+        );
+    animation: loaderSweep 1.25s ease-in-out infinite;
+}
+
+@keyframes loaderFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+@keyframes loaderSweep {
+    from {
+        transform: translateX(-120%);
+    }
+
+    to {
+        transform: translateX(280%);
+    }
+}
+
+/* ---------- Desktop Wide-Screen Balance ---------- */
+
+@media (min-width: 1500px) {
+    section {
+        padding-left: max(9%, calc((100vw - 1450px) / 2));
+        padding-right: max(9%, calc((100vw - 1450px) / 2));
+    }
+}
+
+/* ---------- Small Phone Cleanup ---------- */
+
+@media (max-width: 420px) {
+    .site-loader-logo {
+        width: 78vw;
+    }
+
+    section {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+}
+
+/* ---------- Reduced Motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .site-loader-logo,
+    .site-loader-line::after {
+        animation: none;
+    }
+
+    .site-loader {
+        transition-duration: 0.01ms;
+    }
+}
+/* Disable any accidental sticky or snapping scroll behavior */
+
+html {
+    scroll-snap-type: none !important;
+    scroll-behavior: auto;
+}
+
+body {
+    scroll-snap-type: none !important;
+}

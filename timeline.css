@@ -1,0 +1,316 @@
+/* ==========================================================
+   NovaDynamics Timeline
+========================================================== */
+
+#timeline{
+
+    padding-top:170px;
+
+    padding-bottom:170px;
+
+}
+
+/* ---------- Timeline Header ---------- */
+
+.timeline-heading{
+
+    width:min(1180px,100%);
+
+    margin:0 auto 80px;
+
+    text-align:center;
+
+}
+
+.timeline-heading h2{
+
+    margin-bottom:24px;
+
+}
+
+.timeline-heading p{
+
+    max-width:720px;
+
+    margin:0 auto;
+
+}
+
+/* ---------- Timeline Container ---------- */
+
+.timeline{
+
+    position:relative;
+
+    width:min(1000px,100%);
+
+    margin:0 auto;
+
+}
+
+/* Vertical center line */
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    bottom:0;
+
+    left:50%;
+
+    width:2px;
+
+    transform:translateX(-50%);
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(63,153,255,0),
+            rgba(63,153,255,.75) 12%,
+            rgba(103,213,255,.85) 88%,
+            rgba(103,213,255,0)
+        );
+
+}
+
+/* ---------- Timeline Entry ---------- */
+
+.timeline-item{
+
+    position:relative;
+
+    width:50%;
+
+    padding-bottom:70px;
+
+}
+
+.timeline-item:nth-child(odd){
+
+    padding-right:70px;
+
+    text-align:right;
+
+}
+
+.timeline-item:nth-child(even){
+
+    margin-left:50%;
+
+    padding-left:70px;
+
+}
+
+/* ---------- Timeline Point ---------- */
+
+.timeline-marker{
+
+    position:absolute;
+
+    top:22px;
+
+    width:20px;
+
+    height:20px;
+
+    border-radius:50%;
+
+    background:white;
+
+    border:5px solid var(--primary);
+
+    box-shadow:
+
+        0 0 0 8px rgba(47,130,255,.12),
+        0 8px 25px rgba(31,101,187,.22);
+
+}
+
+.timeline-item:nth-child(odd) .timeline-marker{
+
+    right:-10px;
+
+}
+
+.timeline-item:nth-child(even) .timeline-marker{
+
+    left:-10px;
+
+}
+
+/* ---------- Timeline Card ---------- */
+
+.timeline-card{
+
+    position:relative;
+
+    padding:32px;
+
+    border-radius:28px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.78),
+            rgba(232,247,255,.56)
+        );
+
+    border:1px solid rgba(255,255,255,.9);
+
+    box-shadow:
+
+        0 24px 60px rgba(31,86,153,.10),
+        inset 0 1px 0 rgba(255,255,255,.95);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    transition:
+
+        transform .35s ease,
+        box-shadow .35s ease;
+
+}
+
+.timeline-card:hover{
+
+    transform:translateY(-7px);
+
+    box-shadow:
+
+        0 34px 80px rgba(25,83,159,.16),
+        inset 0 1px 0 rgba(255,255,255,.95);
+
+}
+
+/* ---------- Timeline Year ---------- */
+
+.timeline-year{
+
+    display:inline-block;
+
+    margin-bottom:14px;
+
+    color:var(--primary);
+
+    font-size:.8rem;
+
+    font-weight:800;
+
+    letter-spacing:.16em;
+
+    text-transform:uppercase;
+
+}
+
+.timeline-card h3{
+
+    margin-bottom:14px;
+
+    font-size:1.65rem;
+
+}
+
+.timeline-card p{
+
+    font-size:1rem;
+
+}
+
+/* ---------- Future Timeline Entry ---------- */
+
+.timeline-item.timeline-future .timeline-marker{
+
+    border-color:#66d8c9;
+
+    box-shadow:
+
+        0 0 0 8px rgba(102,216,201,.14),
+        0 8px 25px rgba(32,135,147,.2);
+
+}
+
+.timeline-item.timeline-future .timeline-year{
+
+    color:#2ba99d;
+
+}
+
+.timeline-item.timeline-future .timeline-card{
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(244,255,253,.82),
+            rgba(218,250,245,.58)
+        );
+
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width:760px){
+
+    #timeline{
+
+        padding-top:120px;
+
+        padding-bottom:120px;
+
+    }
+
+    .timeline-heading{
+
+        margin-bottom:60px;
+
+    }
+
+    .timeline::before{
+
+        left:10px;
+
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even){
+
+        width:100%;
+
+        margin-left:0;
+
+        padding-left:48px;
+
+        padding-right:0;
+
+        padding-bottom:34px;
+
+        text-align:left;
+
+    }
+
+    .timeline-item:nth-child(odd) .timeline-marker,
+    .timeline-item:nth-child(even) .timeline-marker{
+
+        left:0;
+
+        right:auto;
+
+    }
+
+    .timeline-card{
+
+        padding:26px;
+
+        border-radius:24px;
+
+    }
+
+}

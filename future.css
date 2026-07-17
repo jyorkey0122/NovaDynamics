@@ -1,0 +1,282 @@
+/* ==========================================================
+   NovaDynamics Future Section
+========================================================== */
+
+#future {
+    position: relative;
+    min-height: 88vh;
+    padding-top: 170px;
+    padding-bottom: 170px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* ---------- Main Future Panel ---------- */
+
+.future-panel {
+    position: relative;
+    width: min(1240px, 100%);
+    min-height: 660px;
+    margin: 0 auto;
+    padding: 72px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 44px;
+    background:
+        radial-gradient(
+            circle at 76% 31%,
+            rgba(255, 255, 255, 0.95),
+            transparent 7%
+        ),
+        radial-gradient(
+            circle at 74% 43%,
+            rgba(94, 218, 255, 0.58),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 67% 50%,
+            rgba(83, 124, 255, 0.35),
+            transparent 39%
+        ),
+        linear-gradient(
+            145deg,
+            #0b2347 0%,
+            #174f8d 50%,
+            #2c8db9 100%
+        );
+    box-shadow:
+        0 42px 110px rgba(9, 45, 94, 0.28);
+    isolation: isolate;
+}
+
+/* ---------- Background Overlay ---------- */
+
+.future-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4, 23, 51, 0.92) 0%,
+            rgba(6, 31, 67, 0.66) 45%,
+            rgba(6, 31, 67, 0.06) 80%
+        );
+}
+
+/* ---------- Orbital Rings ---------- */
+
+.future-panel::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -140px;
+    width: 620px;
+    height: 620px;
+    z-index: -1;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow:
+        0 0 0 90px rgba(255, 255, 255, 0.035),
+        0 0 0 180px rgba(255, 255, 255, 0.018);
+}
+
+/* ---------- Content ---------- */
+
+.future-content {
+    max-width: 650px;
+}
+
+.future-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: #a9ecff;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.future-eyebrow::before {
+    content: "";
+    width: 34px;
+    height: 2px;
+    border-radius: 999px;
+    background:
+        linear-gradient(
+            90deg,
+            #77dfff,
+            #91ffe3
+        );
+}
+
+.future-content h2 {
+    max-width: 720px;
+    margin: 0 0 26px;
+    color: white;
+    text-align: left;
+    font-size: clamp(3rem, 6vw, 5.7rem);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+}
+
+.future-content p {
+    max-width: 610px;
+    margin: 0;
+    color: rgba(236, 248, 255, 0.8);
+    text-align: left;
+    font-size: 1.08rem;
+}
+
+/* ---------- Status Row ---------- */
+
+.future-status-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 34px;
+}
+
+.future-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 17px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(244, 251, 255, 0.9);
+    font-size: 0.85rem;
+    font-weight: 700;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.future-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #74ebd6;
+    box-shadow:
+        0 0 0 5px rgba(116, 235, 214, 0.12);
+}
+
+/* ---------- Future Cards ---------- */
+
+.future-cards {
+    position: absolute;
+    top: 58px;
+    right: 58px;
+    width: 330px;
+    display: grid;
+    gap: 14px;
+}
+
+.future-card {
+    padding: 20px 22px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.11);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease;
+}
+
+.future-card:hover {
+    transform: translateX(-7px);
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.future-card span {
+    display: block;
+    margin-bottom: 7px;
+    color: #a9ecff;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.future-card h3 {
+    margin: 0;
+    color: white;
+    font-size: 1.08rem;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 950px) {
+    .future-panel {
+        min-height: 720px;
+        padding: 58px;
+    }
+
+    .future-cards {
+        top: 42px;
+        right: 42px;
+        width: 280px;
+    }
+
+    .future-content {
+        max-width: 590px;
+    }
+}
+
+@media (max-width: 760px) {
+    #future {
+        min-height: auto;
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    .future-panel {
+        min-height: 700px;
+        padding: 34px 28px;
+        align-items: flex-end;
+        border-radius: 30px;
+    }
+
+    .future-panel::before {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(4, 23, 51, 0.08) 10%,
+                rgba(4, 23, 51, 0.9) 78%
+            );
+    }
+
+    .future-panel::after {
+        top: 20%;
+        right: -280px;
+        width: 520px;
+        height: 520px;
+        transform: none;
+    }
+
+    .future-cards {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        margin-bottom: 54px;
+    }
+
+    .future-content h2 {
+        font-size: clamp(2.8rem, 12vw, 4.3rem);
+    }
+
+    .future-content p {
+        font-size: 1rem;
+    }
+}

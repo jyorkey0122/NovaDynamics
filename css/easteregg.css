@@ -1,0 +1,653 @@
+/* ==========================================================
+   NovaDynamics Easter Egg
+========================================================== */
+
+/* ---------- Night Mode ---------- */
+
+body.nova-mode .background-gradient {
+    background:
+        radial-gradient(
+            circle at top,
+            #153d68 0%,
+            #07182f 48%,
+            #020a15 100%
+        );
+}
+
+body.nova-mode {
+    color: #dcedff;
+}
+
+body.nova-mode .background-glow {
+    opacity: 0.28;
+}
+
+body.nova-mode .glow-one {
+    background: #2a9cff;
+}
+
+body.nova-mode .glow-two {
+    background: #43e3cc;
+}
+
+body.nova-mode nav {
+    background: rgba(7, 27, 53, 0.72);
+    border-color: rgba(141, 215, 255, 0.16);
+    box-shadow: 0 20px 60px rgba(0, 5, 20, 0.35);
+}
+
+body.nova-mode .logo span,
+body.nova-mode .nav-links a {
+    color: #d9efff;
+}
+
+body.nova-mode .menu-button {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body.nova-mode .menu-button span {
+    background: #d9efff;
+}
+
+body.nova-mode .hero h1 {
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #78cfff
+        );
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+body.nova-mode .hero p,
+body.nova-mode section > p,
+body.nova-mode .timeline-card p,
+body.nova-mode .research-topic p,
+body.nova-mode .technology-item p {
+    color: rgba(218, 237, 255, 0.72);
+}
+
+body.nova-mode #vision::before,
+body.nova-mode .card,
+body.nova-mode .timeline-card,
+body.nova-mode .research-topic,
+body.nova-mode .technology-item,
+body.nova-mode .site-footer {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(13, 43, 76, 0.78),
+            rgba(8, 27, 53, 0.68)
+        );
+    border-color: rgba(128, 202, 255, 0.14);
+    box-shadow:
+        0 25px 70px rgba(0, 8, 25, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+body.nova-mode h2,
+body.nova-mode h3,
+body.nova-mode .footer-column h3 {
+    color: #e8f6ff;
+}
+
+body.nova-mode .filter-button {
+    color: #cfe9ff;
+    background: rgba(10, 37, 69, 0.7);
+    border-color: rgba(117, 200, 255, 0.16);
+}
+
+body.nova-mode .filter-button.active {
+    color: white;
+    background:
+        linear-gradient(
+            135deg,
+            #207ed8,
+            #41b9e8
+        );
+}
+
+body.nova-mode .footer-column a,
+body.nova-mode .footer-bottom p {
+    color: rgba(214, 234, 249, 0.68);
+}
+
+body.nova-mode .back-to-top {
+    color: #dcefff;
+    background: rgba(9, 34, 64, 0.76);
+    border-color: rgba(135, 210, 255, 0.18);
+}
+
+/* ---------- Mode Notification ---------- */
+
+.nova-notification {
+    position: fixed;
+    left: 50%;
+    bottom: 32px;
+    z-index: 7000;
+    padding: 13px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    background: rgba(6, 25, 51, 0.82);
+    color: white;
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    box-shadow: 0 18px 50px rgba(0, 10, 30, 0.32);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    opacity: 0;
+    pointer-events: none;
+    transform:
+        translateX(-50%)
+        translateY(14px);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.nova-notification.visible {
+    opacity: 1;
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+/* ==========================================================
+   Hidden Launch Sequence
+========================================================== */
+
+/* ---------- Logo Launch Stage ---------- */
+
+.launch-logo-stage {
+    position: relative;
+    width: min(760px, 86vw);
+    margin: 0 auto 34px;
+    display: grid;
+    place-items: center;
+    isolation: isolate;
+}
+
+.launch-logo-stage .hero-logo {
+    position: relative;
+    z-index: 4;
+    width: min(680px, 78vw);
+    max-height: 180px;
+    margin: 0;
+}
+
+/* ---------- Hidden Orbital Hardware ---------- */
+
+.launch-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    display: block;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.launch-ring-outer {
+    width: 118%;
+    aspect-ratio: 1.9 / 1;
+    border: 1px solid rgba(77, 190, 255, 0.55);
+    box-shadow:
+        0 0 20px rgba(72, 187, 255, 0.18),
+        inset 0 0 20px rgba(72, 187, 255, 0.08);
+    transform:
+        translate(-50%, -50%)
+        rotate(-12deg)
+        scale(0.84);
+}
+
+.launch-ring-inner {
+    width: 88%;
+    aspect-ratio: 2.15 / 1;
+    border: 1px dashed rgba(102, 231, 214, 0.72);
+    transform:
+        translate(-50%, -50%)
+        rotate(17deg)
+        scale(0.78);
+}
+
+/* Small orbiting markers */
+
+.launch-ring::before,
+.launch-ring::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #b9f5ff;
+    box-shadow:
+        0 0 9px #68d8ff,
+        0 0 22px rgba(74, 201, 255, 0.8);
+}
+
+.launch-ring::before {
+    left: -5px;
+}
+
+.launch-ring::after {
+    right: -5px;
+}
+
+/* ---------- Targeting Crosshair ---------- */
+
+.launch-crosshair {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 125%;
+    height: 220px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+}
+
+.launch-crosshair::before,
+.launch-crosshair::after {
+    content: "";
+    position: absolute;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(68, 189, 255, 0.45),
+            transparent
+        );
+}
+
+.launch-crosshair::before {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+}
+
+.launch-crosshair::after {
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(68, 189, 255, 0.4),
+            transparent
+        );
+}
+
+/* ---------- Launch Beam ---------- */
+
+.launch-beam {
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    z-index: 0;
+    width: 180px;
+    height: 120vh;
+    pointer-events: none;
+    opacity: 0;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0),
+            rgba(112, 222, 255, 0.1) 24%,
+            rgba(112, 222, 255, 0.5) 50%,
+            rgba(112, 222, 255, 0.08) 76%,
+            transparent
+        );
+    filter: blur(18px);
+    transform:
+        translate(-50%, -50%)
+        scaleX(0.2);
+}
+
+/* ---------- Full-Screen Ignition Flash ---------- */
+
+body.launch-sequence::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 6500;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(219, 250, 255, 0.72),
+            rgba(72, 191, 255, 0.2) 20%,
+            rgba(45, 108, 255, 0.08) 42%,
+            transparent 68%
+        );
+    animation: launchScreenFlash 4.2s ease both;
+}
+
+/* ---------- Sequence Animations ---------- */
+
+body.launch-sequence .launch-ring-outer {
+    animation:
+        launchRingAppear 0.55s ease forwards,
+        launchRingOuterSpin 3.5s 0.35s cubic-bezier(.2, .75, .25, 1) forwards;
+}
+
+body.launch-sequence .launch-ring-inner {
+    animation:
+        launchRingAppear 0.55s 0.12s ease forwards,
+        launchRingInnerSpin 3.2s 0.42s cubic-bezier(.2, .75, .25, 1) forwards;
+}
+
+body.launch-sequence .launch-crosshair {
+    animation: launchCrosshair 3.8s ease both;
+}
+
+body.launch-sequence .launch-beam {
+    animation: launchBeam 4s ease both;
+}
+
+body.launch-sequence .launch-logo-stage .hero-logo {
+    animation: launchLogoIgnition 4s cubic-bezier(.18, .78, .24, 1) both;
+}
+
+body.launch-sequence .background-glow {
+    animation: launchBackgroundGlow 4s ease both;
+}
+
+/* ---------- Notification ---------- */
+
+.launch-notification {
+    position: fixed;
+    left: 50%;
+    bottom: 42px;
+    z-index: 7000;
+    padding: 14px 24px;
+    border: 1px solid rgba(154, 229, 255, 0.3);
+    border-radius: 999px;
+    background: rgba(4, 25, 52, 0.82);
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+    box-shadow:
+        0 22px 60px rgba(0, 18, 52, 0.4),
+        0 0 36px rgba(82, 202, 255, 0.22);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    opacity: 0;
+    pointer-events: none;
+    transform:
+        translateX(-50%)
+        translateY(14px);
+}
+
+.launch-notification.visible {
+    animation: launchMessage 4s ease both;
+}
+
+/* ---------- Keyframes ---------- */
+
+@keyframes launchRingAppear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.92;
+    }
+}
+
+@keyframes launchRingOuterSpin {
+    0% {
+        opacity: 0.92;
+        transform:
+            translate(-50%, -50%)
+            rotate(-12deg)
+            scale(0.84);
+    }
+
+    30% {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            rotate(105deg)
+            scale(1);
+    }
+
+    80% {
+        opacity: 0.9;
+        transform:
+            translate(-50%, -50%)
+            rotate(325deg)
+            scale(1.06);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            rotate(430deg)
+            scale(1.22);
+    }
+}
+
+@keyframes launchRingInnerSpin {
+    0% {
+        opacity: 0.9;
+        transform:
+            translate(-50%, -50%)
+            rotate(17deg)
+            scale(0.78);
+    }
+
+    35% {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            rotate(-145deg)
+            scale(0.96);
+    }
+
+    82% {
+        opacity: 0.85;
+        transform:
+            translate(-50%, -50%)
+            rotate(-330deg)
+            scale(1.04);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            rotate(-450deg)
+            scale(1.18);
+    }
+}
+
+@keyframes launchCrosshair {
+    0%,
+    8% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scale(1.3);
+    }
+
+    20%,
+    55% {
+        opacity: 0.72;
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    72% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scale(0.72);
+    }
+}
+
+@keyframes launchBeam {
+    0%,
+    38% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scaleX(0.12);
+    }
+
+    52% {
+        opacity: 0.9;
+        transform:
+            translate(-50%, -50%)
+            scaleX(1);
+    }
+
+    68% {
+        opacity: 0.48;
+        transform:
+            translate(-50%, -50%)
+            scaleX(0.48);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scaleX(0.05);
+    }
+}
+
+@keyframes launchLogoIgnition {
+    0% {
+        transform: translateY(0) scale(1);
+        filter: none;
+    }
+
+    18% {
+        transform: translateY(3px) scale(0.985);
+    }
+
+    42% {
+        transform: translateY(-5px) scale(1.025);
+        filter:
+            drop-shadow(0 0 14px rgba(112, 220, 255, 0.55));
+    }
+
+    56% {
+        transform: translateY(-18px) scale(1.055);
+        filter:
+            drop-shadow(0 0 24px rgba(137, 232, 255, 0.92))
+            drop-shadow(0 0 58px rgba(57, 135, 255, 0.48));
+    }
+
+    72% {
+        transform: translateY(-9px) scale(1.025);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        filter: none;
+    }
+}
+
+@keyframes launchScreenFlash {
+    0%,
+    38% {
+        opacity: 0;
+    }
+
+    52% {
+        opacity: 0.95;
+    }
+
+    68% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes launchBackgroundGlow {
+    0%,
+    100% {
+        opacity: 0.45;
+        filter: blur(100px);
+    }
+
+    55% {
+        opacity: 0.9;
+        filter: blur(72px);
+    }
+}
+
+@keyframes launchMessage {
+    0% {
+        opacity: 0;
+        transform:
+            translateX(-50%)
+            translateY(14px);
+    }
+
+    16%,
+    76% {
+        opacity: 1;
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translateX(-50%)
+            translateY(-8px);
+    }
+}
+
+@media (max-width: 760px) {
+    .launch-logo-stage {
+        width: 94vw;
+    }
+
+    .launch-ring-outer {
+        width: 108%;
+    }
+
+    .launch-ring-inner {
+        width: 84%;
+    }
+
+    .launch-notification {
+        width: max-content;
+        max-width: calc(100vw - 36px);
+        bottom: 24px;
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.launch-sequence .launch-ring,
+    body.launch-sequence .launch-crosshair,
+    body.launch-sequence .launch-beam,
+    body.launch-sequence .launch-logo-stage .hero-logo {
+        animation-duration: 0.01ms;
+    }
+}

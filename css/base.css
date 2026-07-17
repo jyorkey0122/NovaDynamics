@@ -1,0 +1,246 @@
+/* ==========================================================
+   NovaDynamics
+   Base Styles
+   Version 1.0
+========================================================== */
+
+/* ---------- Reset ---------- */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ---------- Root ---------- */
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* ---------- Body ---------- */
+
+body{
+
+    font-family:"Inter",sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+    min-height:100vh;
+
+    line-height:1.6;
+
+}
+
+/* ---------- Images ---------- */
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+}
+
+/* ---------- Links ---------- */
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+/* ---------- Lists ---------- */
+
+ul{
+
+    list-style:none;
+
+}
+
+/* ---------- Sections ---------- */
+
+section{
+
+    position:relative;
+
+    width:100%;
+
+    padding:140px 9%;
+
+}
+
+/* ---------- Headings ---------- */
+
+h1{
+
+    font-size:4.8rem;
+
+    line-height:1;
+
+    font-weight:800;
+
+    letter-spacing:-2px;
+
+    color:var(--navy);
+
+}
+
+h2{
+
+    font-size:3rem;
+
+    color:var(--navy);
+
+    margin-bottom:25px;
+
+}
+
+h3{
+
+    font-size:1.5rem;
+
+    color:var(--navy);
+
+    margin-bottom:15px;
+
+}
+
+/* ---------- Paragraphs ---------- */
+
+p{
+
+    color:var(--text-light);
+
+    font-size:1.08rem;
+
+    line-height:1.9;
+
+}
+
+/* ---------- Background ---------- */
+
+.background-gradient{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at top,
+    #dff7ff 0%,
+    #f4fbff 35%,
+    #ffffff 100%);
+
+    z-index:-3;
+
+}
+
+/* ---------- Floating Glow ---------- */
+
+.background-glow{
+
+    position:fixed;
+
+    border-radius:50%;
+
+    filter:blur(100px);
+
+    opacity:.45;
+
+    z-index:-2;
+
+    will-change: transform;
+
+    transform: translateZ(0);
+
+    pointer-events: none;
+
+}
+
+.glow-one{
+
+    width:700px;
+
+    height:700px;
+
+    background:#79d8ff;
+
+    top:-250px;
+
+    left:-150px;
+
+}
+
+.glow-two{
+
+    width:600px;
+
+    height:600px;
+
+    background:#7caeff;
+
+    bottom:-250px;
+
+    right:-150px;
+
+}
+
+/* ---------- Buttons ---------- */
+
+.primary-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:18px 42px;
+
+    margin-top:45px;
+
+    border-radius:999px;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        #5fb8ff
+    );
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    box-shadow:0 15px 35px rgba(45,125,255,.28);
+
+}
+
+.primary-button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 20px 45px rgba(45,125,255,.35);
+
+}
+
+/* ---------- Containers ---------- */
+
+.container{
+
+    width:min(1300px,92%);
+
+    margin:auto;
+
+}
